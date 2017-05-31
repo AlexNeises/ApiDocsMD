@@ -88,13 +88,11 @@ load = (next) ->
                         output += '|`' + type + '`|' + newf + '|' + opt + desc + '|\n'
                     output += '\n\n'
                 if innerValue[0].parameter.examples?
-                    output += '#### Parameter Examples\n'
-                    output += '|Type|Content|\n'
-                    output += '|--- |---    |\n'
+                    output += '#### Examples\n'
                     _.forEach innerValue[0].parameter.examples, (field) ->
-                        type = if field.type?    then field.type    else ''
-                        cont = if field.content? then field.content else ''
-                        output += '|`' + type + '`|<pre>' + _.replace(cont, /\n/g, '<br>') + '</pre>|'
+                        output += '```bash\n'
+                        output += field.content + '\n'
+                        output += '```\n'
                     output += '\n\n'
             output += '[Back to top](#top)\n\n\n'
 
