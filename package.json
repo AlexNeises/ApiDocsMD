@@ -1,0 +1,34 @@
+{
+  "name": "apidocsmd",
+  "version": "1.0.0",
+  "description": "Convert ApiDoc documentation to a Markdown format.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexNeises/ApiDocsMD.git"
+  },
+  "bin": {
+    "apidocsmd": "bin/app.js"
+  },
+  "keywords": [
+    "apidocs",
+    "markdown"
+  ],
+  "author": "Alex Neises",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexNeises/ApiDocsMD/issues"
+  },
+  "homepage": "https://github.com/AlexNeises/ApiDocsMD#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-coffee": "^1.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "minimist": "^1.2.0"
+  }
+}
