@@ -112,14 +112,11 @@ load = function(next) {
           output += '\n\n';
         }
         if (innerValue[0].parameter.examples != null) {
-          output += '#### Parameter Examples\n';
-          output += '|Type|Content|\n';
-          output += '|--- |---    |\n';
+          output += '#### Examples\n';
           _.forEach(innerValue[0].parameter.examples, function(field) {
-            var cont, type;
-            type = field.type != null ? field.type : '';
-            cont = field.content != null ? field.content : '';
-            return output += '|`' + type + '`|<pre>' + _.replace(cont, /\n/g, '<br>') + '</pre>|';
+            output += '```bash\n';
+            output += field.content + '\n';
+            return output += '```\n';
           });
           output += '\n\n';
         }
