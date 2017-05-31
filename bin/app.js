@@ -50,16 +50,16 @@ load = function(next) {
       if (innerValue[0].type != null) {
         switch (_.toLower(innerValue[0].type)) {
           case 'get':
-            output += '<img src="https://img.shields.io/badge/rest-GET-00C000.png" />\n\n';
+            output += '![](https://img.shields.io/badge/rest-GET-00C000.png?maxAge=3600)\n\n';
             break;
           case 'post':
-            output += '<img src="https://img.shields.io/badge/rest-POST-4070EC.png" />\n\n';
+            output += '![](https://img.shields.io/badge/rest-POST-4070EC.png?maxAge=3600)\n\n';
             break;
           case 'put':
-            output += '<img src="https://img.shields.io/badge/rest-PUT-E5C500.png" />\n\n';
+            output += '![](https://img.shields.io/badge/rest-PUT-E5C500.png?maxAge=3600)\n\n';
             break;
           case 'delete':
-            output += '<img src="https://img.shields.io/badge/rest-DELETE-ED0039.png" />\n\n';
+            output += '![](https://img.shields.io/badge/rest-DELETE-ED0039.png?maxAge=3600)\n\n';
             break;
           default:
             output += _.toUpper(innerValue[0].type);
