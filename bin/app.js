@@ -56,7 +56,7 @@ load = function(next) {
             output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-4070EC.png?maxAge=3600)\n\n';
             break;
           case 'put':
-            output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E5C500.png?maxAge=3600)\n\n';
+            output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E59500.png?maxAge=3600)\n\n';
             break;
           case 'delete':
             output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-ED0039.png?maxAge=3600)\n\n';
