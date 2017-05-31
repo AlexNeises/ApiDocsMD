@@ -1,6 +1,6 @@
 {
   "name": "apidocsmd",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Convert ApiDoc documentation to a Markdown format.",
   "main": "app.js",
   "scripts": {
