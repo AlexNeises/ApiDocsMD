@@ -47,10 +47,10 @@ load = (next) ->
                 output += innerValue[0].title + '\n\n'
             if innerValue[0].type?
                 switch _.toLower innerValue[0].type
-                    when 'get'    then output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/get.png" height="24" />\n\n'
-                    when 'post'   then output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/post.png" height="24" />\n\n'
-                    when 'put'    then output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/put.png" height="24" />\n\n'
-                    when 'delete' then output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/delete.png" height="24" />\n\n'
+                    when 'get'    then output += '<img src="https://img.shields.io/badge/rest-GET-00C000.png" />\n\n'
+                    when 'post'   then output += '<img src="https://img.shields.io/badge/rest-POST-4070EC.png" />\n\n'
+                    when 'put'    then output += '<img src="https://img.shields.io/badge/rest-PUT-E5C500.png" />\n\n'
+                    when 'delete' then output += '<img src="https://img.shields.io/badge/rest-DELETE-ED0039.png" />\n\n'
                     else output += _.toUpper innerValue[0].type
             if innerValue[0].url?
                 output += '`' + innerValue[0].url + '`\n\n'
