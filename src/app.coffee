@@ -45,15 +45,13 @@ load = (next) ->
             output += '### ' + innerKey + '\n'
             if innerValue[0].title?
                 output += innerValue[0].title + '\n\n'
-            if innerValue[0].type?
+            if innerValue[0].type? and innerValue[0].url?
                 switch _.toLower innerValue[0].type
-                    when 'get'    then output += '![](https://img.shields.io/badge/rest-GET-00C000.png?maxAge=3600)\n\n'
-                    when 'post'   then output += '![](https://img.shields.io/badge/rest-POST-4070EC.png?maxAge=3600)\n\n'
-                    when 'put'    then output += '![](https://img.shields.io/badge/rest-PUT-E5C500.png?maxAge=3600)\n\n'
-                    when 'delete' then output += '![](https://img.shields.io/badge/rest-DELETE-ED0039.png?maxAge=3600)\n\n'
+                    when 'get'    then output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-00C000.png?maxAge=3600)\n\n'
+                    when 'post'   then output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-4070EC.png?maxAge=3600)\n\n'
+                    when 'put'    then output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E5C500.png?maxAge=3600)\n\n'
+                    when 'delete' then output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-ED0039.png?maxAge=3600)\n\n'
                     else output += _.toUpper innerValue[0].type
-            if innerValue[0].url?
-                output += '`' + innerValue[0].url + '`\n\n'
             if innerValue[0].header?
                 if innerValue[0].header.fields?
                     output += '#### Headers\n'
