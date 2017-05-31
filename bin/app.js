@@ -35,32 +35,96 @@ load = function(next) {
     output += data.projectDesc + '\n';
   }
   _.forEach(groupData, function(value, key) {
-    output += '- [' + key + '](#' + _.replace(_.lowerCase(key), /\s/g, '-') + ')\n';
+    output += '- [' + key + '](#' + _.replace(_.toLower(key), /\s/g, '-') + ')\n';
     return _.forEach(value, function(innerValue, innerKey) {
-      return output += '\t- [' + innerKey + '](#' + _.replace(_.lowerCase(innerKey), /\s/g, '-') + ')\n';
+      return output += '\t- [' + innerKey + '](#' + _.replace(_.toLower(innerKey), /\s/g, '-') + ')\n';
     });
   });
   _.forEach(groupData, function(value, key) {
-    output += '### ' + key + '\n';
+    output += '## ' + key + '\n';
     return _.forEach(value, function(innerValue, innerKey) {
-      output += '#### ' + innerKey + '\n';
-      switch (_.lowerCase(innerValue[0].type)) {
-        case 'get':
-          output += '![GET](https://github.com/alexneises/ApiDocsMD/get.png)\n';
-          break;
-        case 'post':
-          output += '![POST](https://github.com/alexneises/ApiDocsMD/post.png)\n';
-          break;
-        case 'put':
-          output += '![PUT](https://github.com/alexneises/ApiDocsMD/put.png)\n';
-          break;
-        case 'delete':
-          output += '![DELETE](https://github.com/alexneises/ApiDocsMD/delete.png)\n';
-          break;
-        default:
-          output += _.upperCase(innerValue[0].type);
+      output += '### ' + innerKey + '\n';
+      if (innerValue[0].title != null) {
+        output += innerValue[0].title + '\n\n';
       }
-      return output += '[Back to top](#top)\n';
+      if (innerValue[0].type != null) {
+        switch (_.toLower(innerValue[0].type)) {
+          case 'get':
+            output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/get.png" height="24" />\n\n';
+            break;
+          case 'post':
+            output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/post.png" height="24" />\n\n';
+            break;
+          case 'put':
+            output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/put.png" height="24" />\n\n';
+            break;
+          case 'delete':
+            output += '<img src="https://github.com/alexneises/ApiDocsMD/raw/master/delete.png" height="24" />\n\n';
+            break;
+          default:
+            output += _.toUpper(innerValue[0].type);
+        }
+      }
+      if (innerValue[0].url != null) {
+        output += '`' + innerValue[0].url + '`\n\n';
+      }
+      if (innerValue[0].header != null) {
+        if (innerValue[0].header.fields != null) {
+          output += '#### Headers\n';
+          output += '|Type|Field|Description|\n';
+          output += '|--- |---  |---        |\n';
+          _.forEach(innerValue[0].header.fields.Header, function(field) {
+            var desc, newf, opt, type;
+            opt = field.optional === true ? '(optional) ' : '';
+            type = field.type != null ? field.type : '';
+            newf = field.field != null ? field.field : '';
+            desc = field.description != null ? field.description : '';
+            return output += '|`' + type + '`|' + newf + '|' + opt + desc + '|\n';
+          });
+          output += '\n\n';
+        }
+        if (innerValue[0].header.examples != null) {
+          output += '#### Header Examples\n';
+          output += '|Type|Content|\n';
+          output += '|--- |---    |\n';
+          _.forEach(innerValue[0].header.examples, function(field) {
+            var cont, type;
+            type = field.type != null ? field.type : '';
+            cont = field.content != null ? field.content : '';
+            return output += '|`' + type + '`|<pre>' + _.replace(cont, /\n/g, '<br>') + '</pre>|';
+          });
+          output += '\n\n';
+        }
+      }
+      if (innerValue[0].parameter != null) {
+        if (innerValue[0].parameter.fields != null) {
+          output += '#### Parameters\n';
+          output += '|Type|Field|Description|\n';
+          output += '|--- |---  |---        |\n';
+          _.forEach(innerValue[0].parameter.fields.Parameter, function(field) {
+            var desc, newf, opt, type;
+            opt = field.optional === true ? '(optional) ' : '';
+            type = field.type != null ? field.type : '';
+            newf = field.field != null ? field.field : '';
+            desc = field.description != null ? field.description : '';
+            return output += '|`' + type + '`|' + newf + '|' + opt + desc + '|\n';
+          });
+          output += '\n\n';
+        }
+        if (innerValue[0].parameter.examples != null) {
+          output += '#### Parameter Examples\n';
+          output += '|Type|Content|\n';
+          output += '|--- |---    |\n';
+          _.forEach(innerValue[0].parameter.examples, function(field) {
+            var cont, type;
+            type = field.type != null ? field.type : '';
+            cont = field.content != null ? field.content : '';
+            return output += '|`' + type + '`|<pre>' + _.replace(cont, /\n/g, '<br>') + '</pre>|';
+          });
+          output += '\n\n';
+        }
+      }
+      return output += '[Back to top](#top)\n\n\n';
     });
   });
   return fs.writeFile(argv.o, output, (function(_this) {
