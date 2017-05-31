@@ -47,26 +47,23 @@ load = function(next) {
       if (innerValue[0].title != null) {
         output += innerValue[0].title + '\n\n';
       }
-      if (innerValue[0].type != null) {
+      if ((innerValue[0].type != null) && (innerValue[0].url != null)) {
         switch (_.toLower(innerValue[0].type)) {
           case 'get':
-            output += '![](https://img.shields.io/badge/rest-GET-00C000.png?maxAge=3600)\n\n';
+            output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-00C000.png?maxAge=3600)\n\n';
             break;
           case 'post':
-            output += '![](https://img.shields.io/badge/rest-POST-4070EC.png?maxAge=3600)\n\n';
+            output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-4070EC.png?maxAge=3600)\n\n';
             break;
           case 'put':
-            output += '![](https://img.shields.io/badge/rest-PUT-E5C500.png?maxAge=3600)\n\n';
+            output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E5C500.png?maxAge=3600)\n\n';
             break;
           case 'delete':
-            output += '![](https://img.shields.io/badge/rest-DELETE-ED0039.png?maxAge=3600)\n\n';
+            output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-ED0039.png?maxAge=3600)\n\n';
             break;
           default:
             output += _.toUpper(innerValue[0].type);
         }
-      }
-      if (innerValue[0].url != null) {
-        output += '`' + innerValue[0].url + '`\n\n';
       }
       if (innerValue[0].header != null) {
         if (innerValue[0].header.fields != null) {
