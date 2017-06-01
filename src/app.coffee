@@ -47,10 +47,10 @@ load = (next) ->
                 output += innerValue[0].title + '\n\n'
             if innerValue[0].type? and innerValue[0].url?
                 switch _.toLower innerValue[0].type
-                    when 'get'    then output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-00C000.png?maxAge=3600&colorA=00C000&colorB=5C5C5C)\n\n'
-                    when 'post'   then output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-4070EC.png?maxAge=3600&colorA=4070EC&colorB=5C5C5C)\n\n'
-                    when 'put'    then output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E59500.png?maxAge=3600&colorA=E59500&colorB=5C5C5C)\n\n'
-                    when 'delete' then output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-ED0039.png?maxAge=3600&colorA=ED0039&colorB=5C5C5C)\n\n'
+                    when 'get'    then output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-5C5C5C.png?colorA=00C000&colorB=5C5C5C)\n\n'
+                    when 'post'   then output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-5C5C5C.png?colorA=4070EC&colorB=5C5C5C)\n\n'
+                    when 'put'    then output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-5C5C5C.png?colorA=E59500&colorB=5C5C5C)\n\n'
+                    when 'delete' then output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-5C5C5C.png?colorA=ED0039&colorB=5C5C5C)\n\n'
                     else output += _.toUpper innerValue[0].type
             if innerValue[0].header?
                 if innerValue[0].header.fields?

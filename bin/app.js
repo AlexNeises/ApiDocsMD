@@ -50,16 +50,16 @@ load = function(next) {
       if ((innerValue[0].type != null) && (innerValue[0].url != null)) {
         switch (_.toLower(innerValue[0].type)) {
           case 'get':
-            output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-00C000.png?maxAge=3600&colorA=00C000&colorB=5C5C5C)\n\n';
+            output += '![](https://img.shields.io/badge/GET-' + innerValue[0].url + '-5C5C5C.png?colorA=00C000&colorB=5C5C5C)\n\n';
             break;
           case 'post':
-            output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-4070EC.png?maxAge=3600&colorA=4070EC&colorB=5C5C5C)\n\n';
+            output += '![](https://img.shields.io/badge/POST-' + innerValue[0].url + '-5C5C5C.png?colorA=4070EC&colorB=5C5C5C)\n\n';
             break;
           case 'put':
-            output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-E59500.png?maxAge=3600&colorA=E59500&colorB=5C5C5C)\n\n';
+            output += '![](https://img.shields.io/badge/PUT-' + innerValue[0].url + '-5C5C5C.png?colorA=E59500&colorB=5C5C5C)\n\n';
             break;
           case 'delete':
-            output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-ED0039.png?maxAge=3600&colorA=ED0039&colorB=5C5C5C)\n\n';
+            output += '![](https://img.shields.io/badge/DELETE-' + innerValue[0].url + '-5C5C5C.png?colorA=ED0039&colorB=5C5C5C)\n\n';
             break;
           default:
             output += _.toUpper(innerValue[0].type);
